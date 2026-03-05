@@ -1,0 +1,80 @@
+/* FUTURA ATUALIZAÇÃO: Extrair as cores principais para Variáveis CSS (:root).
+    Isso facilitará a criação de temas ou a alteração da paleta de cores inteira do site em um só lugar.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body { background-color: #f4f4f9; color: #333; }
+header { text-align: center; padding: 40px 20px; background-color: #2c3e50; color: white; }
+header p { margin-top: 10px; color: #bdc3c7; }
+
+/* Grid da Galeria */
+.gallery-container {
+    display: grid;
+    /* FUTURA ATUALIZAÇÃO: Adicionar 'masonry layout' no futuro para imagens de alturas diferentes se encaixarem como no Pinterest */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-img {
+    width: 100%; height: 200px; object-fit: cover;
+    border-radius: 8px; cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Modal e Overlay */
+.modal {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.92); z-index: 1000;
+    /* FUTURA ATUALIZAÇÃO: Adicionar um efeito de blur no fundo usando backdrop-filter: blur(5px); */
+}
+.modal.hidden { display: none; }
+
+.modal-content {
+    max-width: 85%; max-height: 75vh; border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    /* FUTURA ATUALIZAÇÃO: Suavizar a transição de troca de imagens adicionando uma animação de fade-in/fade-out aqui */
+}
+
+/* Barras Superior e Inferior */
+.modal-top-bar {
+    position: absolute; top: 20px; width: 100%; padding: 0 40px;
+    display: flex; justify-content: space-between; align-items: center; color: white;
+}
+.counter { font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+.close-btn { font-size: 40px; cursor: pointer; transition: color 0.3s; }
+.close-btn:hover { color: #e74c3c; }
+
+.modal-bottom-bar {
+    margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px;
+}
+.caption { color: #ecf0f1; font-size: 1.2rem; letter-spacing: 1px; }
+.download-btn {
+    padding: 10px 20px; background-color: #3498db; color: white; text-decoration: none;
+    border-radius: 25px; font-weight: bold; transition: background 0.3s;
+}
+.download-btn:hover { background-color: #2980b9; }
+
+/* Botões de Navegação (Setas) */
+.nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1); border: none; color: white;
+    font-size: 40px; padding: 15px 20px; cursor: pointer; transition: 0.3s; border-radius: 5px;
+}
+.nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
+#prev-btn { left: 20px; }
+#next-btn { right: 20px; }
+
+/* FUTURA ATUALIZAÇÃO: Adicionar Media Queries (@media) para reposicionar os botões de seta na parte de baixo da tela em celulares muito estreitos */

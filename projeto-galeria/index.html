@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria com Modal Profissional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📸 Minha Galeria</h1>
+        <p>Clique numa imagem para ampliá-la.</p>
+        </header>
+
+    <main class="gallery-container" id="gallery-container">
+        <img src="https://picsum.photos/id/1015/300/200" data-highres="https://picsum.photos/id/1015/1200/800" alt="Vale Majestoso" class="gallery-img">
+        <img src="https://picsum.photos/id/1016/300/200" data-highres="https://picsum.photos/id/1016/1200/800" alt="Montanhas Rochosas" class="gallery-img">
+        <img src="https://picsum.photos/id/1018/300/200" data-highres="https://picsum.photos/id/1018/1200/800" alt="Caminho na Natureza" class="gallery-img">
+        <img src="https://picsum.photos/id/1022/300/200" data-highres="https://picsum.photos/id/1022/1200/800" alt="Luzes Noturnas" class="gallery-img">
+        <img src="https://picsum.photos/id/1036/300/200" data-highres="https://picsum.photos/id/1036/1200/800" alt="Picos Gelados" class="gallery-img">
+        <img src="https://picsum.photos/id/1043/300/200" data-highres="https://picsum.photos/id/1043/1200/800" alt="Floresta Densa" class="gallery-img">
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-top-bar">
+            <span id="image-counter" class="counter">1 / 6</span>
+            <span class="close-btn" title="Fechar">&times;</span>
+        </div>
+
+        <button id="prev-btn" class="nav-btn" title="Anterior">&#10094;</button>
+
+        <img id="modal-img" class="modal-content" src="" alt="Imagem Ampliada">
+
+        <button id="next-btn" class="nav-btn" title="Próxima">&#10095;</button>
+
+        <div class="modal-bottom-bar">
+            <div id="caption" class="caption"></div>
+            <a id="download-btn" class="download-btn" href="" download>⬇ Transferir</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
