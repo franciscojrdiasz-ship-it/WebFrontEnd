@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef em Casa - Receitas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🍳 Chef em Casa</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar por receita ou ingrediente...">
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-categoria="Todas">Todas</button>
+            <button class="filter-btn" data-categoria="Prato Principal">Pratos Principais</button>
+            <button class="filter-btn" data-categoria="Sobremesa">Sobremesas</button>
+            <button class="filter-btn" data-categoria="Lanche">Lanches</button>
+            <button class="filter-btn" data-categoria="Favoritos">❤️ Favoritos</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="recipes-grid" id="recipes-container"></div>
+        <p id="no-results" class="hidden">Nenhuma receita encontrada. Tente outra busca! 😢</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
