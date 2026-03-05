@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de Acesso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Bem-vindo de volta</h2>
+            <p>Por favor, insira seus dados para continuar.</p>
+        </div>
+
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="seu.nome@exemplo.com">
+                <span class="error-message" id="email-error"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="••••••••">
+                <span class="error-message" id="password-error"></span>
+            </div>
+
+            <button type="submit" id="submit-btn">Entrar no Sistema</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
