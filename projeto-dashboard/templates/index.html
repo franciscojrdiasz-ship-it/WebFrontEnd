@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>📊 Dashboard de Vendas</h1>
+        </header>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="regiao">Região:</label>
+                <select id="regiao">
+                    <option value="Todas">Todas</option>
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="produto">Produto:</label>
+                <select id="produto">
+                    <option value="Todos">Todos</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Smartphone">Smartphone</option>
+                    <option value="Tablet">Tablet</option>
+                </select>
+            </div>
+
+            <button id="btn-filtrar">Aplicar Filtros</button>
+        </div>
+
+        <div class="chart-wrapper">
+            <canvas id="vendasChart"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
