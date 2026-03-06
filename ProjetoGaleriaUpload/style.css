@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body { background-color: #f4f4f9; color: #333; }
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+header p { margin-top: 10px; color: #bdc3c7; }
+
+/* Controles de Upload */
+.upload-controls { margin-top: 25px; }
+
+/* A mágica que esconde o botão padrão do Windows/Navegador */
+.hidden-input { display: none !important; }
+
+.upload-btn {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.upload-btn:hover { background-color: #2ecc71; }
+
+/* Galeria Responsiva */
+.gallery-container {
+    display: grid;
+    /* Isso faz a galeria se adaptar automaticamente a qualquer tamanho de tela */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Modal e Sobreposição */
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+}
+
+/* O !important resolve o erro que vazou os botões na sua imagem */
+.modal.hidden { display: none !important; }
+
+.modal-content {
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+
+/* Barras e Botões do Modal */
+.modal-top-bar {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.counter { font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+.close-btn { font-size: 40px; cursor: pointer; transition: color 0.3s; }
+.close-btn:hover { color: #e74c3c; }
+
+.modal-bottom-bar { margin-top: 20px; text-align: center; }
+.caption { color: #ecf0f1; font-size: 1.2rem; margin-bottom: 15px; }
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Em celulares menores, os botões caem para a linha de baixo */
+}
+
+.share-btn, .download-btn {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.share-btn { background-color: #8e44ad; }
+.share-btn:hover { background-color: #9b59b6; }
+.download-btn { background-color: #3498db; }
+.download-btn:hover { background-color: #2980b9; }
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 40px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
+#prev-btn { left: 10px; }
+#next-btn { right: 10px; }

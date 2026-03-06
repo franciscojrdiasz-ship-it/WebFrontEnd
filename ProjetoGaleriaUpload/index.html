@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Dinâmica Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📸 Minha Galeria</h1>
+        <p>Faça upload das suas fotos e compartilhe com um clique!</p>
+
+        <div class="upload-controls">
+            <input type="file" id="file-input" multiple accept="image/*" class="hidden-input">
+            <label for="file-input" class="upload-btn">➕ Adicionar Novas Imagens</label>
+        </div>
+    </header>
+
+    <main class="gallery-container" id="gallery-container">
+        <img src="https://picsum.photos/id/1015/300/200" data-highres="https://picsum.photos/id/1015/1200/800" alt="Vale Majestoso" class="gallery-img">
+        <img src="https://picsum.photos/id/1016/300/200" data-highres="https://picsum.photos/id/1016/1200/800" alt="Montanhas Rochosas" class="gallery-img">
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-top-bar">
+            <span id="image-counter" class="counter">1 / 2</span>
+            <span class="close-btn" title="Fechar">&times;</span>
+        </div>
+
+        <button id="prev-btn" class="nav-btn" title="Anterior">&#10094;</button>
+        <img id="modal-img" class="modal-content" src="" alt="Imagem Ampliada">
+        <button id="next-btn" class="nav-btn" title="Próxima">&#10095;</button>
+
+        <div class="modal-bottom-bar">
+            <div id="caption" class="caption"></div>
+            <div class="action-buttons">
+                <button id="share-btn" class="share-btn">🔗 Compartilhar</button>
+                <a id="download-btn" class="download-btn" href="" download>⬇ Transferir</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
