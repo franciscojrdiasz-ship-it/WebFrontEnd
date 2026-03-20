@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Fake Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="toast-container" class="toast-container"></div>
+
+    <header class="header">
+        <h1>Minha Loja</h1>
+        <div class="cart-info">
+            <span>🛒 Carrinho: <strong id="cart-count">0</strong> itens</span>
+            <button class="btn-checkout" onclick="finalizarCompra()">Finalizar Compra</button>
+            <a href="/dashboard" class="btn-dashboard">Ver Dashboard</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Produtos em Destaque</h2>
+        <div id="product-list" class="product-grid"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
