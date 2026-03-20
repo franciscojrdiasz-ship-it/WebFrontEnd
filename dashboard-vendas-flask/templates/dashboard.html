@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Dashboard de Resultados</h1>
+        <a href="/" class="btn-dashboard" style="color: white; background-color: #34495e; padding: 10px 15px; border-radius: 5px;">Voltar para a Loja</a>
+    </header>
+
+    <main class="container">
+        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <canvas id="vendasChart"></canvas>
+        </div>
+
+        <div id="mensagem-vazia" style="text-align: center; margin-top: 30px; display: none;">
+            <h3 style="color: #e74c3c;">Ainda não existem vendas registadas!</h3>
+            <p>Volta à loja, adiciona produtos ao carrinho e clica em "Finalizar Compra" para veres os gráficos aqui.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            renderizarGrafico();
+        });
+
+        async function renderizarGrafico() {
+            try {
+                // Vai buscar os dados reais consolidados do SQLite via Flask
+                const resposta = await fetch('/api/dashboard/dados');
+                const dadosDoBanco = await resposta.json();
+
+                // Se não houver categorias, significa que a base de dados SQL está vazia
+                if (dadosDoBanco.categorias.length === 0) {
+                    document.getElementById('mensagem-vazia').style.display = 'block';
+                    return; // Pára a execução para não desenhar um gráfico vazio
+                }
+
+                const ctx = document.getElementById('vendasChart').getContext('2d');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: dadosDoBanco.categorias,
+                        datasets: [{
+                        label: 'Total de Vendas por Categoria (R$)', // <-- Altera aqui
+                        data: dadosDoBanco.vendas,
+                        // ... resto do código continua igual
+                            backgroundColor: [
+                                'rgba(52, 152, 219, 0.6)',
+                                'rgba(46, 204, 113, 0.6)',
+                                'rgba(241, 196, 15, 0.6)',
+                                'rgba(231, 76, 60, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(52, 152, 219, 1)',
+                                'rgba(46, 204, 113, 1)',
+                                'rgba(241, 196, 15, 1)',
+                                'rgba(231, 76, 60, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            } catch (erro) {
+                console.error("Erro ao carregar dados do dashboard:", erro);
+            }
+        }
+    </script>
+</body>
+</html>
